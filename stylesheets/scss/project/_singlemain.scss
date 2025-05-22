@@ -1,0 +1,270 @@
+@use "../global/index"as *;
+
+.single {
+    .contents_wrap {
+        .cover {
+            padding: 3.8rem 2rem 0.8rem 3.9rem;
+
+            @include mq {
+                padding: 6rem 8rem;
+            }
+
+            @include mq(md) {
+                padding: 8.6rem 0 0;
+                max-width: 118.5rem;
+                margin: auto;
+            }
+        }
+
+        section.wp_area {
+            .container {
+                padding: 0 2.8rem 6rem;
+
+                @include mq {
+                    padding: 0 8rem 10rem;
+                }
+
+                @include mq(md) {
+                    padding: 0 0 24rem;
+                    max-width: 98rem;
+                    margin: auto;
+                }
+
+                .post_content {
+                    .post_cover {
+                        .category_name {
+                            font-size: 1.4rem;
+                            font-family: 'Noto Serif JP';
+                            font-weight: 500;
+                            margin: 0 0 2rem 1.4rem;
+
+                            @include mq(md) {
+                                font-size: 2.3rem;
+                                margin: 0 0 2rem;
+                            }
+                        }
+
+                        .thumbnail {
+                            margin: 0 0 1.6rem;
+
+                            @include mq(md) {
+                                margin: 0 0 4.4rem;
+                            }
+
+                            img {
+                                aspect-ratio: 319/130.2041;
+                                object-fit: cover;
+                            }
+                        }
+                    }
+
+                    .content {
+                        padding: 2.7rem 0 0;
+                        line-height: 1.88;
+                        text-align: justify;
+                        letter-spacing: -0.7px;
+
+                        @include mq(md) {
+                            font-size: 1.8rem;
+                            padding: 6.1rem 0 0;
+                            letter-spacing: -0.1px;
+                        }
+
+                        blockquote.wp-block-quote {
+                            border-left: .1rem solid #32363a;
+                            padding: 1rem 0 1rem 3.5rem;
+                        }
+
+                        .wp-block-embed-youtube .wp-block-embed__wrapper {
+                            aspect-ratio: 16/9;
+
+                            iframe {
+                                width: 100%;
+                                height: 100%;
+                            }
+                        }
+
+                        figure.wp-block-image {
+                            margin: 1rem 0;
+                        }
+
+                        a[data-type="dictionary"] {
+                            background: rgb(180 201 196 / 50%);
+                            text-decoration: underline;
+                            text-decoration-thickness: 0.15rem;
+                            text-underline-offset: 0.2rem;
+                        }
+
+                        figcaption.wp-element-caption {
+                            font-size: 1.2rem;
+                        }
+                    }
+
+                }
+            }
+        }
+
+        .archives {
+            .container {
+                .archives_list {
+                    display: flex;
+                    flex-direction: column;
+                    row-gap: 3rem;
+                    padding: 0 4.7rem 6rem;
+                    max-width: 98rem;
+                    margin-inline: auto;
+
+                    @include mq {
+                        padding: 0 10rem 10rem;
+                        row-gap: 5rem;
+                    }
+
+                    @include mq(md) {
+                        flex-direction: row;
+                        justify-content: center;
+                        column-gap: 3rem;
+                        padding: 0 0 15rem;
+                    }
+
+                    .list {
+                        background: #fff;
+                        border-radius: 1.5rem;
+
+                        @include mq(md) {
+                            flex: 1;
+                            border-radius: 2.1rem;
+                        }
+
+                        a {
+                            display: block;
+
+                            div.thumbnail {
+                                img {
+                                    border-radius: 1.5rem 1.5rem 0 0;
+                                    aspect-ratio: 28 / 15;
+                                    object-fit: cover;
+
+                                    @include mq(md) {
+                                        border-radius: 2.1rem 2.1rem 0 0;
+                                        aspect-ratio: 40/26;
+                                    }
+                                }
+                            }
+
+                            p.title {
+                                border-radius: 0 0 1.5rem 1.5rem;
+                                background: #fff;
+                                padding: 1.5rem 1.5rem;
+                                line-height: 1.4;
+                                font-weight: 700;
+                                display: flex;
+                                justify-content: center;
+                                text-align: justify;
+                                letter-spacing: -0.5px;
+
+                                @include mq(md) {
+                                    font-size: 2rem;
+                                    border-radius: 0 0 2.1rem 2.1rem;
+                                }
+                            }
+                        }
+
+
+                    }
+                }
+            }
+        }
+    }
+}
+
+.post-type-archive-dictionary {
+    .contents_wrap {
+        .cover {
+            padding: 3.8rem 2rem 3.4rem 3.9rem;
+
+            @include mq {
+                padding: 6rem 8rem;
+            }
+
+            @include mq(md) {
+                padding: 8.6rem 0 5.8rem;
+                margin: auto;
+                width: clamp(50rem, 100% - 12rem, 118.5rem);
+            }
+
+            .title_area {
+                p.lead_text {
+                    line-height: 1.9;
+                    letter-spacing: -1px;
+
+                    @include mq(md) {
+                        display: flex;
+                        justify-content: center;
+                        margin: auto;
+                        line-height: 2.4;
+                        font-size: 1.8rem;
+                        letter-spacing: -1.5px;
+                    }
+                }
+            }
+        }
+
+        .dictionary_list_wrap {
+            display: flex;
+            flex-direction: column;
+            row-gap: 4rem;
+            width: clamp(28rem, 100% - 8rem, 102rem);
+            margin: 0 auto 4.5rem;
+
+            @include mq {
+                width: clamp(50rem, 100% - 16rem, 102rem);
+                margin: 0 auto 10rem;
+            }
+
+            @include mq(md) {
+                width: clamp(28rem, 100% - 8rem, 102rem);
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 5.6rem 6rem;
+                margin: 0 auto 14rem;
+            }
+
+            .dictionary_list {
+                font-weight: 700;
+
+                p {
+                    width: 4.6rem;
+                    height: 4.6rem;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background: #B4C9C4;
+                    font-size: 2.5rem;
+                    border-radius: 50%;
+
+                    @include mq(md) {
+                        width: 5.5rem;
+                        height: 5.5rem;
+                        font-size: 3rem;
+                    }
+                }
+
+                ul {
+                    font-size: 2rem;
+                    display: flex;
+                    flex-direction: column;
+                    row-gap: 1.5rem;
+                    margin: 1.5rem 0 0;
+                    line-height: 1.5;
+
+
+                    @include mq(md) {
+                        font-size: 2.2rem;
+                        row-gap: 2.8rem;
+                        margin: 3.2rem 0 0;
+                    }
+                }
+            }
+        }
+    }
+}

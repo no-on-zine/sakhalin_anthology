@@ -1,0 +1,116 @@
+@use "../global/index"as *;
+
+a.button_black {
+    display: flex;
+    width: clamp(10rem, 85vw, 40rem);
+    background: #32363a;
+    height: 3.4rem;
+    border-radius: 1.7rem;
+    color: #fff;
+    font-weight: 700;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-inline: auto;
+    column-gap: 1rem;
+    transition: .6s;
+    z-index: 1;
+
+    @include mq {
+        height: 6rem;
+        border-radius: 3rem;
+    }
+
+    @include mq(md) {
+        justify-content: space-between;
+        font-size: 2rem;
+        padding: 0 2rem 0 5.1rem;
+        width: clamp(50rem, 50vw, 62.2rem);
+
+        &:hover {
+            background: rgb(50 54 58 / 50%);
+        }
+    }
+
+    &::before {
+        content: "";
+        display: block;
+        width: 2rem;
+        height: 2rem;
+        background: #c8c3c0;
+        border-radius: 50%;
+        position: absolute;
+        left: 1.25rem;
+        top: 0.75rem;
+
+        @include mq {
+            width: 2.4rem;
+            height: 2.4rem;
+            left: 1.65rem;
+            top: 1.75rem;
+        }
+    }
+
+    &::after {
+        content: "";
+        display: block;
+        background: #fff;
+        height: 0.9rem;
+        aspect-ratio: 0.8660254038;
+        clip-path: polygon(0 0, 100% 50%, 0 100%);
+        position: absolute;
+        top: 1.3rem;
+        left: 1.95rem;
+
+        @include mq {
+            height: 1.1rem;
+            top: 2.45rem;
+            left: 2.55rem;
+        }
+    }
+
+    span {
+        white-space: nowrap;
+
+        &:nth-child(2) {
+            flex: 1;
+            height: 1px;
+            background: #fff;
+            display: none;
+
+            @include mq(md) {
+                display: block;
+            }
+        }
+
+        &:last-child {
+            display: none;
+
+            @include mq(md) {
+                display: block;
+                font-size: 1.65rem;
+                font-family: "Noto Serif JP", system-ui;
+                font-optical-sizing: auto;
+                font-weight: 600;
+            }
+        }
+    }
+}
+
+.cover_bottom {
+    a.button_black {
+        @include mq(md) {
+            width: auto;
+        }
+    }
+}
+
+section.map,
+section.chronology {
+    a.button_black {
+        @include mq(md) {
+            width: clamp(40rem, 45vw, 54.4rem);
+            margin-inline: 0;
+        }
+    }
+}

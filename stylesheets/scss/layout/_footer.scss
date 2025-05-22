@@ -1,0 +1,19 @@
+@use "../global/index"as *;
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    font-family: "Noto Serif JP", system-ui;
+    font-optical-sizing: auto;
+    height: 6.5rem;
+    letter-spacing: 0.21rem;
+    background: #fff;
+
+    @include mq(md) {
+        font-size: 1.8rem;
+        height: 11.5rem;
+        letter-spacing: 0.37rem;
+    }
+}

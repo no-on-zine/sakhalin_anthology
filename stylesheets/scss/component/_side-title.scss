@@ -1,0 +1,20 @@
+@use "../global/index"as *;
+
+.side_title_sticky {
+    position: fixed;
+    left: 0;
+    top: 9.5rem;
+    writing-mode: vertical-rl;
+    font-size: clamp(2.3rem, 6.13333vw, 6.6rem);
+    color: #b4c9c4;
+    font-family: "Noto Serif JP", system-ui;
+    font-optical-sizing: auto;
+    line-height: 0.9;
+    letter-spacing: 0.05rem;
+    z-index: 10;
+
+    @include mq(md) {
+        top: 23.1rem;
+        letter-spacing: 0.15rem;
+    }
+}

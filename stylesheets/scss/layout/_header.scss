@@ -1,0 +1,217 @@
+@use "../global/index"as *;
+
+header {
+    position: absolute;
+    top: 3.3rem;
+    right: 0;
+    left: 24vw;
+    padding: 0 2.5rem 0 0;
+    z-index: 11;
+
+    @include mq {
+        top: 6.3rem;
+        left: 27vw;
+    }
+
+    @include mq(md) {
+        top: 5.1rem;
+        left: 44.3vw;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        row-gap: clamp(1rem, 1.3vw, 2.6rem);
+    }
+
+    >div.logo_hamburger {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            row-gap: .8rem;
+            position: relative;
+            z-index: 10;
+
+            @include mq {
+                scale: 1.5;
+                transform-origin: 100% 50%;
+            }
+
+            @include mq(md) {
+                display: none;
+            }
+
+            span {
+                background: #32363A;
+                height: 0.1rem;
+                width: 2.4rem;
+                transition: .6s;
+            }
+
+            &.active {
+                span {
+                    background: #fff;
+
+                    &:first-child {
+                        rotate: 937deg;
+                        translate: 0 0.9rem;
+                    }
+
+                    &:nth-child(2) {
+                        opacity: 0;
+                    }
+
+                    &:last-child {
+                        rotate: -757deg;
+                        translate: 0 -0.9rem;
+                    }
+                }
+            }
+        }
+    }
+
+    div.nav_wrap {
+
+        >nav {
+            position: fixed;
+            visibility: hidden;
+            opacity: 0;
+            left: 100%;
+            background: #69A3D8;
+            transition: .6s;
+            bottom: 0;
+            top: 0;
+            width: 85%;
+            z-index: 9;
+
+            @include mq(md) {
+                position: unset;
+                visibility: visible;
+                opacity: 1;
+                background: none;
+                width: auto;
+            }
+
+            ul {
+                font-weight: 700;
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+                padding: 21.4dvh 0 0 18.9vw;
+                row-gap: 4.37rem;
+                font-weight: 700;
+                color: #fff;
+                font-size: 2rem;
+                line-height: 1;
+                white-space: nowrap;
+
+                @include mq {
+                    font-size: 3rem;
+                    row-gap: 8rem;
+                }
+
+                @include mq(md) {
+                    flex-direction: row;
+                    height: auto;
+                    padding: 0;
+                    row-gap: unset;
+                    color: #32363A;
+                    column-gap: 3rem;
+                    font-size: clamp(1rem, 1.6vw, 2rem);
+                }
+
+                li {
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    column-gap: .9rem;
+
+                    @include mq(md) {
+                        column-gap: .35rem;
+                    }
+
+                    &::before {
+                        content: "";
+                        display: block;
+                        min-width: 2.4rem;
+                        height: 2.4rem;
+                        background: #C8C3C0;
+                        border-radius: 50%;
+                    }
+
+                    &::after {
+                        content: "";
+                        display: block;
+                        background: #fff;
+                        height: 1.2rem;
+                        aspect-ratio: cos(30deg);
+                        clip-path: polygon(0 0, 100% 50%, 0 100%);
+                        position: absolute;
+                        top: .6rem;
+                        left: .8rem;
+
+                        @include mq {
+                            top: .9rem;
+                        }
+
+                        @include mq(md) {
+                            top: .6rem;
+                        }
+                    }
+
+                    &:first-child {
+                        @include mq(md) {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+
+        &.active {
+            >nav {
+                visibility: visible;
+                opacity: 1;
+                left: 15%;
+            }
+        }
+    }
+
+    &.page_header {
+        position: static;
+        padding: 0 2.8rem 0 2.7rem;
+        height: 5.8rem;
+        border-bottom: 1px solid #32363A;
+
+        @include mq {
+            height: 10rem;
+        }
+
+        @include mq(md) {
+            height: 16rem;
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            align-items: center;
+            column-gap: 5.8rem;
+        }
+
+        >div.logo_hamburger {
+            height: 100%;
+
+            @include mq(md) {
+                flex: 1 0 0;
+                width: 50%;
+                justify-content: flex-end;
+            }
+        }
+
+        div.nav_wrap {
+            @include mq(md) {
+                width: 50%;
+            }
+        }
+    }
+}

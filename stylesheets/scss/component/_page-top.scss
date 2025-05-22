@@ -1,0 +1,104 @@
+@use "../global/index"as *;
+
+.page_top {
+    position: fixed;
+    bottom: 4.3rem;
+    right: 2.8rem;
+    width: 6rem;
+    height: 6rem;
+    cursor: pointer;
+    border-radius: 50%;
+    background: #fff;
+    border: .06rem solid #c8c3c0;
+    font-size: 1rem;
+    font-family: "Noto Serif JP", system-ui;
+    font-optical-sizing: auto;
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s;
+
+    @include mq {
+        width: 9.6rem;
+        height: 9.6rem;
+        font-size: 1.3rem;
+        bottom: 6rem;
+        right: 6rem;
+        border-width: 0.1rem;
+    }
+
+    @include mq(md) {
+        bottom: 6.8rem;
+        right: 9.2rem;
+    }
+
+    &.is-active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    >div {
+        rotate: 90deg;
+        position: absolute;
+        top: 1.6rem;
+        left: 50%;
+
+        @include mq {
+            top: 3.5rem;
+        }
+
+        span {
+            display: block;
+            background: #231815;
+            height: .06rem;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            translate: -50% 0;
+
+            &:first-child {
+                width: 2rem;
+                rotate: -41deg;
+                transform-origin: 0 0;
+
+                @include mq {
+                    width: 3.2rem;
+                }
+            }
+
+            &:nth-child(2) {
+                width: 2.5rem;
+                translate: -1rem 0;
+
+                @include mq {
+                    width: 3.9rem;
+                    translate: -1.6rem 0;
+                }
+            }
+
+            &:last-child {
+                width: 2rem;
+                rotate: 41deg;
+                transform-origin: 0 0;
+
+                @include mq {
+                    width: 3.2rem;
+                }
+            }
+
+        }
+    }
+
+    p {
+        position: absolute;
+        bottom: 1.7rem;
+        left: 50%;
+        translate: -50% 0;
+        width: 100%;
+        text-align: center;
+
+        @include mq {
+            bottom: 2.4rem;
+        }
+    }
+}

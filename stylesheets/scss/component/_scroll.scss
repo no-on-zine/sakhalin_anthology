@@ -1,0 +1,24 @@
+@use "../global/index"as *;
+
+.scroll-in {
+    opacity: 0;
+    visibility: hidden;
+    transition: 1.5s;
+}
+
+.displayed {
+    animation: fadeUp 1.5s forwards;
+    visibility: visible;
+}
+
+@keyframes fadeUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

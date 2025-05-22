@@ -1,0 +1,46 @@
+@use "../global/index"as *;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200..900&display=swap');
+
+html {
+    font-size: 62.5%;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-behavior: smooth;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    body {
+        background: #ECF3F5;
+        font-family: "fot-udmincho-pr6n", "Noto Serif JP", serif;
+        font-weight: 300;
+        word-wrap: break-word;
+        line-height: 1;
+        font-size: 1.6rem;
+        color: #32363A;
+
+        div#page_wrapper {
+            opacity: 0;
+            visibility: hidden;
+            transition: .8s;
+        }
+    }
+
+    &.wf-active {
+        body {
+            div#page_wrapper {
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+    }
+}
+
+
+
+img {
+    height: auto;
+    max-width: 100%;
+    vertical-align: bottom;
+}

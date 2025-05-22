@@ -1,0 +1,215 @@
+@use "../global/index"as *;
+
+#modal {
+    opacity: 0;
+    visibility: hidden;
+    transition: .5s;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 100rem;
+    background-color: #B4C9C4;
+    z-index: 1000;
+    box-shadow: 0 0 5px 5px rgb(107 117 117 / 50%);
+    border-radius: 20px;
+    padding: 0 0 4rem;
+
+    &.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .post_content {
+        .post_content_title_wrap {
+            padding: 2rem;
+
+            @include mq(md) {
+                padding: 2rem 5rem;
+            }
+
+            h2.post_title {
+                display: table;
+                margin: auto;
+
+                &::before {
+                    display: none;
+                }
+
+                span {
+                    display: block;
+                    text-align: left;
+                    line-height: 1.5;
+                    text-align: justify;
+
+                    @include mq(md) {
+                        font-size: 3.8rem;
+                        letter-spacing: 2.7px;
+                    }
+
+                    &.romaji {
+                        font-size: 1.5rem;
+                        line-height: 1;
+                        translate: 0 -0.2rem;
+                        letter-spacing: 1px;
+
+                        @include mq(md) {
+                            font-size: 1.8rem;
+                            translate: 0 -0.9rem;
+                            letter-spacing: 2.9px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .content {
+            background: #efefef;
+            line-height: 1.8;
+            font-size: 1.4rem;
+            padding: 3rem 2rem;
+            max-height: 65dvh;
+            overflow-y: scroll;
+            scrollbar-color: #B4C9C4 #B4C9C4;
+            display: flex;
+            flex-direction: column;
+            row-gap: 3rem;
+
+            @include mq {
+                padding: 5rem 8rem;
+                line-height: 2;
+            }
+
+            @include mq(md) {
+                flex-direction: row;
+                column-gap: 5.2rem;
+                padding: 6.6rem 14.8rem 0;
+            }
+
+            .iframe-wrapper {
+                aspect-ratio: 255 / 334.6875;
+
+                @include mq {
+                    aspect-ratio: 5/6;
+                }
+
+                @include mq(md) {
+                    aspect-ratio: 32 / 42;
+                    flex: .62;
+                }
+
+                iframe {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            .text {
+                @include mq(md) {
+                    flex: 1;
+                    font-size: 1.8rem;
+                }
+
+                p {
+                    text-align: justify;
+                    letter-spacing: 1px;
+
+                    @include mq(md) {
+                        padding: 0 0 7rem;
+                    }
+                }
+            }
+
+            &.has-map-only {
+                @include mq(md) {
+                    display: block;
+                    padding: 6.6rem 14.8rem;
+                    position: relative;
+                    height: clamp(50dvh, 70rem, 65dvh);
+                }
+
+                @include mq(md) {
+                    .iframe-wrapper {
+                        aspect-ratio: unset;
+                        position: absolute;
+                        inset: 6.6rem 14.8rem;
+                    }
+                }
+            }
+
+            &.has-both {
+                @include mq(md) {
+                    padding: 4rem 5.3rem;
+                }
+
+                .text {
+                    p {
+                        @include mq(md) {
+                            padding: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+#modal-overlay {
+    opacity: 0;
+    visibility: hidden;
+    transition: .5s;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+
+    &.active {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+#close-modal {
+    position: absolute;
+    right: 3rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    bottom: 0rem;
+    display: flex;
+    width: 4rem;
+    height: 4rem;
+    align-items: center;
+    font-weight: 700;
+
+    @include mq(md) {
+        font-size: 1.6rem;
+        right: 5rem;
+    }
+
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        width: 2.4rem;
+        height: .15rem;
+        background-color: #32363a;
+        translate: 0 -50%;
+        top: 50%;
+        right: -1.5rem;
+
+        @include mq(md) {
+            right: -3rem;
+        }
+    }
+
+    &::before {
+        rotate: 45deg;
+    }
+
+    &::after {
+        rotate: -45deg;
+    }
+}

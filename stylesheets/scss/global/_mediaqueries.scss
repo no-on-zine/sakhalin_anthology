@@ -1,0 +1,21 @@
+@use "sass:map";
+$breakpoint-up: ('sm': '(520px <= width)', 'md': '(960px <= width)', 'lg': '(1280px <= width)', 'xl': '(1440px <= width)', 'xxl': '(1920px <= width)', ) !default;
+
+//0-519
+//520-959 sm
+//960-1280 md
+//1281-1440 lg
+//1440-1980 xl
+//1981- xxl
+
+@mixin mq($breakpoint: sm) {
+    @media #{map.get($breakpoint-up, $breakpoint)} {
+        @content;
+    }
+}
+
+@mixin dm {
+    @media (prefers-color-scheme: dark) {
+        @content;
+    }
+}

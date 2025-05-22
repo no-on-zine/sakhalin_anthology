@@ -1,0 +1,188 @@
+@use "../global/index"as *;
+
+h1 {
+    width: 82.4%;
+
+    @include mq(md) {
+        width: 73.6%;
+    }
+
+    a {
+        display: block;
+    }
+}
+
+.page_header {
+    h1 {
+        width: 66.6%;
+
+        @include mq {
+            width: clamp(20em, 100%, 37rem);
+        }
+
+        @include mq(md) {
+            width: clamp(21.666rem, 100%, 56.52rem);
+        }
+    }
+}
+
+h2 {
+    font-family: "Noto Serif JP", system-ui;
+    font-optical-sizing: auto;
+    font-size: clamp(2rem, 5.3333vw, 3.2rem);
+    font-weight: 700;
+    text-align: center;
+    margin: 0 0 1.9rem;
+    color: #32363A;
+
+    @include mq(md) {
+        text-align: left;
+        display: flex;
+        align-items: center;
+        column-gap: 1.2rem;
+        margin-bottom: 7.2rem;
+    }
+
+    &.kanji {
+        letter-spacing: 9px;
+    }
+
+    &::before {
+        @include mq(md) {
+            content: "";
+            width: 17rem;
+            height: 0.2rem;
+            background: #32363A;
+            translate: 0 0.4rem;
+        }
+    }
+}
+
+section.map,
+section.chronology {
+    @include mq(md) {
+        h2 {
+            margin-bottom: 5.9rem;
+        }
+    }
+}
+
+section.credit {
+    @include mq(md) {
+        h2 {
+            margin-bottom: 5rem;
+        }
+    }
+}
+
+.page,
+.single,
+.archive {
+    .title_area {
+        h2 {
+            font-family: "fot-udmincho-pr6n", sans-serif;
+            text-align: left;
+            margin: 0 0 .8rem .5rem;
+            font-size: clamp(2rem, 5.3333vw, 4.5rem);
+
+            @include mq(md) {
+                margin: 0;
+            }
+
+            &::before {
+                @include mq(md) {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    &.anthology,
+    &.maps,
+    &.chronology,
+    &.post-type-archive-dictionary {
+        .title_area {
+            h2 {
+                margin: 0 0 2rem;
+
+                @include mq(md) {
+                    margin: 0 0 5.9rem;
+                }
+            }
+        }
+    }
+}
+
+.single {
+    .title_area {
+        h2 {
+            margin: 0 0 2rem;
+
+            @include mq(md) {
+                margin: 0 0 6.8rem;
+            }
+        }
+    }
+
+    section.wp_area {
+        h2.post_title {
+            font-family: "fot-udmincho-pr6n", sans-serif;
+            text-align: left;
+            line-height: 1.4;
+            font-size: 1.8rem;
+            border-bottom: 1px solid #32363A;
+            padding: 0 0 0.6rem;
+            margin: 0;
+
+            @include mq(md) {
+                justify-content: center;
+                font-size: 3.6rem;
+                padding: 0 0 2rem;
+            }
+
+            &::before {
+                @include mq(md) {
+                    display: none;
+                }
+            }
+        }
+
+        h3.wp-block-heading {
+            font-weight: 700;
+            margin: 2rem 0;
+
+            @include mq(md) {
+                margin: 4rem 0;
+            }
+        }
+    }
+
+    .archives {
+        h2 {
+            margin: 0 0 4rem;
+
+            @include mq(md) {
+                margin: 0 0 7.5rem;
+            }
+        }
+    }
+}
+
+.anthology_post {
+    h3 {
+        font-weight: 700;
+        font-size: 1.8rem;
+        padding: 1rem 0 0.8rem;
+        line-height: 1.4;
+        border-bottom: 1px solid #32363A;
+        display: flex;
+        justify-content: center;
+        text-align: justify;
+        letter-spacing: -0.5px;
+
+        @include mq(md) {
+            font-size: 2.2rem;
+            padding: 2.3rem 0 1.8rem;
+        }
+    }
+}
